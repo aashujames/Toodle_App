@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../../styles/TodayTask.css";
 import AddIcon from "@mui/icons-material/Add";
 import { v4 as uuid } from "uuid";
+import Task from "../Task";
 
 const TodayTask = () => {
     const [taskList, setTaskList] = useState([]);
@@ -21,8 +22,12 @@ const TodayTask = () => {
             <h2>Today's Tasks:</h2>
             {taskList.map((item) => (
                 <div key={item.id}>
-                    <p>{item.task}</p>
-                    <button>edit</button>
+                    <Task
+                        task={item.task}
+                        id={item.id}
+                        taskList={taskList}
+                        setTaskList={setTaskList}
+                    />
                 </div>
             ))}
             <form onSubmit={handleSubmit}>
