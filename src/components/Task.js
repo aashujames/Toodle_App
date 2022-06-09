@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ClearIcon from "@mui/icons-material/Clear";
 
 const Task = ({ task, id, setTaskList, taskList }) => {
     const [input, setInput] = useState(task);
@@ -10,15 +11,25 @@ const Task = ({ task, id, setTaskList, taskList }) => {
         setTaskList(temp);
     };
 
+    const removeTask = () => {
+        const filtered = taskList.filter((item) => item.id !== id);
+        setTaskList(filtered);
+    };
+
     return (
-        <input
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onBlur={updateTaskList}
-            // onKeyDown={(e) => {
-            //     if (e.key === "Enter") updateTaskList();
-            // }}
-        />
+        <div>
+            <input
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onBlur={updateTaskList}
+                // onKeyDown={(e) => {
+                //     if (e.key === "Enter") updateTaskList();
+                // }}
+            />
+            <button onClick={removeTask}>
+                <ClearIcon />{" "}
+            </button>
+        </div>
     );
 };
 
