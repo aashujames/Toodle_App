@@ -6,15 +6,15 @@ import Task from "../Task";
 
 const TodayTask = () => {
     const [taskList, setTaskList] = useState([]);
-    const [task, setTask] = useState("");
+    const [name, setName] = useState("");
     const [showInput, setShowInput] = useState(true);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const singleTask = { id: uuid(), task };
+        const singleTask = { id: uuid(), name, isCompleted: false };
         setTaskList([...taskList, singleTask]);
         setShowInput(true);
-        setTask("");
+        setName("");
     };
 
     return (
@@ -23,8 +23,7 @@ const TodayTask = () => {
             {taskList.map((item) => (
                 <div key={item.id}>
                     <Task
-                        task={item.task}
-                        id={item.id}
+                        task={item}
                         taskList={taskList}
                         setTaskList={setTaskList}
                     />
@@ -39,8 +38,8 @@ const TodayTask = () => {
                     ) : (
                         <input
                             type="text"
-                            value={task}
-                            onChange={(e) => setTask(e.target.value)}
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                         />
                     )}
                 </div>
