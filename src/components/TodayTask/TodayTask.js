@@ -8,10 +8,11 @@ const TodayTask = () => {
     const [taskList, setTaskList] = useState([]);
     const [name, setName] = useState("");
     const [showInput, setShowInput] = useState(true);
+    const [isCompleted, setIsCompleted] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const singleTask = { id: uuid(), name, isCompleted: false };
+        const singleTask = { id: uuid(), name, isCompleted };
         setTaskList([...taskList, singleTask]);
         setShowInput(true);
         setName("");
@@ -26,6 +27,7 @@ const TodayTask = () => {
                         task={item}
                         taskList={taskList}
                         setTaskList={setTaskList}
+                        setIsCompleted={setIsCompleted}
                     />
                 </div>
             ))}

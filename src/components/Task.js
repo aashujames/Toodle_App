@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ClearIcon from "@mui/icons-material/Clear";
 
-const Task = ({ task, setTaskList, taskList }) => {
+const Task = ({ task, setTaskList, taskList, setIsCompleted }) => {
     const { id, name, isCompleted } = task;
     const [input, setInput] = useState(name);
 
@@ -17,9 +17,20 @@ const Task = ({ task, setTaskList, taskList }) => {
         setTaskList(filtered);
     };
 
+    const handleCompleted = () => {
+        const temp = [...taskList];
+        const specificItem = temp.find((obj) => obj.id === id);
+        specificItem.isCompleted = !isCompleted;
+        setTaskList(temp);
+    };
+
     return (
         <div>
-            {/* <input type="radio" onChange={(e) => } /> */}
+            <input
+                type="checkbox"
+                checked={isCompleted}
+                onChange={handleCompleted}
+            />
             <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
