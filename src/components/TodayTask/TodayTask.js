@@ -3,6 +3,7 @@ import "../../styles/TodayTask.css";
 import AddIcon from "@mui/icons-material/Add";
 import { v4 as uuid } from "uuid";
 import Task from "../Task";
+import CompletedTask from "../CompletedTask/CompletedTask";
 
 const TodayTask = () => {
     const [taskList, setTaskList] = useState([]);
@@ -46,6 +47,7 @@ const TodayTask = () => {
                     )}
                 </div>
             </form>
+            <CompletedTask taskList={taskList} />
         </section>
     );
 };
