@@ -1,3 +1,12 @@
-.top {
-    text-decoration: underline;
+section {
+    width: 55vw;
+    box-sizing: border-box;
+}
+
+.newtask {
+    width: 55vw;
+    display: flex;
+    align-items: center;
+    background-color: rgb(237, 236, 234);
+    color: rgb(102, 100, 100);
 }

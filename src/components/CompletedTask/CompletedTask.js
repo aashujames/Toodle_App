@@ -1,4 +1,5 @@
 import React from "react";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const CompletedTask = ({ taskList }) => {
     return (
@@ -8,7 +9,10 @@ const CompletedTask = ({ taskList }) => {
                 (item) =>
                     item.isCompleted && (
                         <div key={item.id}>
-                            <p>{item.name}</p>
+                            <p>
+                                <CheckCircleIcon />
+                                {item.name}
+                            </p>
                         </div>
                     )
             )}

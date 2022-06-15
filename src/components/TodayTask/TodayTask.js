@@ -35,7 +35,10 @@ const TodayTask = () => {
             <form onSubmit={handleSubmit}>
                 <div>
                     {showInput ? (
-                        <button onClick={() => setShowInput(false)}>
+                        <button
+                            className="newtask"
+                            onClick={() => setShowInput(false)}
+                        >
                             <AddIcon /> New Task
                         </button>
                     ) : (

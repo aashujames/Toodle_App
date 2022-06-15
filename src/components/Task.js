@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ClearIcon from "@mui/icons-material/Clear";
+import "../styles/Task.css";
 
 const Task = ({ task, setTaskList, taskList, setIsCompleted }) => {
     const { id, name, isCompleted } = task;
@@ -28,11 +29,13 @@ const Task = ({ task, setTaskList, taskList, setIsCompleted }) => {
         !isCompleted && (
             <div>
                 <input
+                    className="check"
                     type="checkbox"
                     checked={isCompleted}
                     onChange={handleCompleted}
                 />
                 <input
+                    className="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onBlur={updateTaskList}

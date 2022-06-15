@@ -1,0 +1,28 @@
+div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text {
+    width: 80%;
+    font-size: 18px;
+}
+
+.check {
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 15px;
+    left: 0;
+    /* position: absolute; */
+    top: 0;
+    width: 15px;
+}
+
+button {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
