@@ -1,0 +1,13 @@
+.Comptask-container {
+    border-bottom: 1px solid grey;
+}
+
+.para {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+}
+
+.icon {
+    padding-right: 20px;
+}

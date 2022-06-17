@@ -27,26 +27,28 @@ const Task = ({ task, setTaskList, taskList, setIsCompleted }) => {
 
     return (
         !isCompleted && (
-            <div>
-                <input
-                    className="check"
-                    type="checkbox"
-                    checked={isCompleted}
-                    onChange={handleCompleted}
-                />
-                <input
-                    className="text"
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    onBlur={updateTaskList}
-                    // onKeyDown={(e) => {
-                    //     if (e.key === "Enter") updateTaskList();
-                    // }}
-                />
-                <button onClick={removeTask}>
-                    <ClearIcon />{" "}
-                </button>
-            </div>
+            <>
+                <div className="task-container">
+                    <input
+                        className="check"
+                        type="checkbox"
+                        checked={isCompleted}
+                        onChange={handleCompleted}
+                    />
+                    <input
+                        className="text"
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        onBlur={updateTaskList}
+                        // onKeyDown={(e) => {
+                        //     if (e.key === "Enter") updateTaskList();
+                        // }}
+                    />
+                    <button onClick={removeTask}>
+                        <ClearIcon />{" "}
+                    </button>
+                </div>
+            </>
         )
     );
 };

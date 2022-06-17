@@ -22,6 +22,7 @@ const TodayTask = () => {
     return (
         <section>
             <h2>Today's Tasks:</h2>
+            <hr />
             {taskList.map((item) => (
                 <div key={item.id}>
                     <Task
@@ -32,6 +33,7 @@ const TodayTask = () => {
                     />
                 </div>
             ))}
+
             <form onSubmit={handleSubmit}>
                 <div>
                     {showInput ? (

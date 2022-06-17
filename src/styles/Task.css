@@ -1,24 +1,29 @@
-div {
+.task-container {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid grey;
+    padding-top: 6px;
+    padding-bottom: 6px;
 }
 
 .text {
     width: 80%;
     font-size: 18px;
+    border: none;
 }
 
 .check {
-    border: 2px solid #ccc;
-    border-radius: 50%;
     cursor: pointer;
     height: 15px;
     left: 0;
-    /* position: absolute; */
     top: 0;
     width: 15px;
+}
+
+hr {
+    flex: none;
 }
 
 button {
