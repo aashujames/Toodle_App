@@ -44,7 +44,7 @@ const Task = ({ task, setTaskList, taskList, setIsCompleted }) => {
                         //     if (e.key === "Enter") updateTaskList();
                         // }}
                     />
-                    <button onClick={removeTask}>
+                    <button onClick={removeTask} className="remove">
                         <ClearIcon />{" "}
                     </button>
                 </div>

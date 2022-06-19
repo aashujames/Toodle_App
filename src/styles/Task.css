@@ -26,8 +26,9 @@ hr {
     flex: none;
 }
 
-button {
+.remove {
     background-color: white;
     border: none;
     cursor: pointer;
+    color: #f7d343;
 }

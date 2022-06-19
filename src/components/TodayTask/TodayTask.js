@@ -19,8 +19,24 @@ const TodayTask = () => {
         setName("");
     };
 
+    const handleCancel = () => {
+        setName("");
+        setShowInput(true);
+    };
+
+    var myCurrentDate = new Date();
+    var date = myCurrentDate.getDate();
+
     return (
         <section>
+            <h1>
+                {date}{" "}
+                <span className="month">
+                    {myCurrentDate.toLocaleString("default", {
+                        month: "short"
+                    })}
+                </span>
+            </h1>
             <h2>Today's Tasks:</h2>
             <hr />
             {taskList.map((item) => (
@@ -44,11 +60,21 @@ const TodayTask = () => {
                             <AddIcon /> New Task
                         </button>
                     ) : (
-                        <input
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        />
+                        <div>
+                            <input
+                                className="today-input"
+                                type="text"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                            <button
+                                type="reset"
+                                onClick={handleCancel}
+                                className="cancel"
+                            >
+                                Cancel
+                            </button>
+                        </div>
                     )}
                 </div>
             </form>
