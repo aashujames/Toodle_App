@@ -1,0 +1,41 @@
+.base-container {
+    box-sizing: border-box;
+    margin: 200px 32vw;
+}
+
+.image {
+    height: 80px;
+    width: 80px;
+    margin: 8px auto;
+    margin-left: 40%;
+}
+
+.header {
+    color: #f7d343;
+    font-size: 36px;
+    margin: 8px auto;
+    text-align: center;
+}
+
+.form {
+    margin: 12px auto;
+    margin-left: 22%;
+}
+
+.form-group {
+    margin: 10px;
+}
+
+.text-field {
+    border: 2px solid #f7d343;
+    height: 32px;
+}
+
+.btn {
+    padding: 8px;
+    font-size: 18px;
+    background-color: rgb(69, 107, 30);
+    color: white;
+    cursor: pointer;
+    margin-left: 40%;
+}

@@ -1,14 +1,16 @@
 import React from "react";
 import "./App.css";
-import Sidebar from "./components/Sidebar/Sidebar";
-import TodayTask from "./components/TodayTask";
+import Register from "./components/Login/Register";
+import Sidebar from "./components/Task/Sidebar/Sidebar";
+import TodayTask from "./components/Task/TodayTask";
 
 function App() {
     return (
-        <div className="main">
-            <Sidebar />
-            <TodayTask />
-        </div>
+        <Register />
+        // <div className="main">
+        //     <Sidebar />
+        //     <TodayTask />
+        // </div>
     );
 }
 

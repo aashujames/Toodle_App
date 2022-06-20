@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ClearIcon from "@mui/icons-material/Clear";
-import "../styles/Task.css";
+import "../../styles/Task.css";
 
 const Task = ({ task, setTaskList, taskList, setIsCompleted }) => {
     const { id, name, isCompleted } = task;

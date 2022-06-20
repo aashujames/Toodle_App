@@ -1,6 +1,6 @@
 import React from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import "../../styles/CompletedTask.css";
+import "../../../styles/CompletedTask.css";
 
 const CompletedTask = ({ taskList }) => {
     return (
