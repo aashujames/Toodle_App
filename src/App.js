@@ -6,7 +6,9 @@ import TodayTask from "./components/Task/TodayTask";
 
 function App() {
     return (
-        <Register />
+        <div className="main-container">
+            <Register />
+        </div>
         // <div className="main">
         //     <Sidebar />
         //     <TodayTask />
