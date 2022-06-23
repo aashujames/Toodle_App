@@ -1,12 +1,15 @@
 import React from "react";
 import logo from "../../../src/logo.png";
 import "../../styles/Register.css";
+import { Link } from "react-router-dom";
 
 const Register = () => {
     return (
         <div className="base-container">
             <div className="header">Register</div>
-            <img src={logo} alt="logo" className="image" />
+            <Link to="/">
+                <img src={logo} alt="logo" className="image" />
+            </Link>
 
             <div className="form">
                 <div className="form-group">
@@ -33,6 +36,9 @@ const Register = () => {
                 <button type="button" className="btn">
                     Register
                 </button>
+            </div>
+            <div>
+                Old User? <Link to="../login">Login</Link>
             </div>
         </div>
     );
