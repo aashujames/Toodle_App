@@ -1,0 +1,33 @@
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-container {
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.2rem;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    border: 3px solid #2ba585;
+    padding: 8px;
+    border-radius: 8%;
+}
+
+.top {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 25%;
+}
+
+.top div {
+    font-size: 1.5rem;
+}
