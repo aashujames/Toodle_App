@@ -26,7 +26,7 @@ const Register = () => {
         const userData = {
             username: data.username,
             email: data.email,
-            password: data.password,
+            password1: data.password1,
             password2: data.password2
         };
         axios
@@ -34,6 +34,16 @@ const Register = () => {
             .then((response) => {
                 console.log(response.status);
                 console.log(response.data);
+            })
+            .catch((error) => {
+                if (error.response) {
+                    console.log(error.response);
+                    console.log("server responded");
+                } else if (error.request) {
+                    console.log("network error");
+                } else {
+                    console.log(error);
+                }
             });
     };
 
