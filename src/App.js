@@ -20,15 +20,15 @@ function App() {
                         </div>
                     }
                 />
-                {/* <Route
-                    path="/"
+                <Route
+                    path="task"
                     element={
                         <div className="main">
                             <Sidebar />
                             <TodayTask />
                         </div>
                     }
-                /> */}
+                />
                 <Route
                     path="register"
                     element={
