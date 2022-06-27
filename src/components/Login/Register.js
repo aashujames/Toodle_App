@@ -11,6 +11,7 @@ const Register = () => {
         password1: "",
         password2: ""
     });
+    const [errors, setErrors] = useState({});
 
     const handleChange = (e) => {
         const id = e.target.id;
@@ -36,13 +37,17 @@ const Register = () => {
                 console.log(response.data);
             })
             .catch((error) => {
-                if (error.response) {
-                    console.log(error.response);
-                    console.log("server responded");
-                } else if (error.request) {
-                    console.log("network error");
-                } else {
-                    console.log(error);
+                if (error.response && error.response.status === 400) {
+                    setErrors(error.response.data);
+                    console.log(error.response.data);
+                    // {
+                    //     "username": [
+                    //       "A user with that username already exists."
+                    //     ],
+                    //     "email": [
+                    //       "A user is already registered with this e-mail address."
+                    //     ]
+                    //   }
                 }
             });
     };
@@ -64,6 +69,7 @@ const Register = () => {
                             value={data.username}
                             onChange={handleChange}
                         />
+                        <p>{errors?.username}</p>
                     </div>
                     <div className="form-group">
                         <label htmlFor="email">Email </label>
@@ -75,6 +81,7 @@ const Register = () => {
                             value={data.email}
                             onChange={handleChange}
                         />
+                        <p>{errors?.email}</p>
                     </div>
                     <div className="form-group">
                         <label htmlFor="password1">Password </label>
@@ -83,7 +90,7 @@ const Register = () => {
                             className="text-field"
                             type="password"
                             id="password1"
-                            value={data.password}
+                            value={data.password1}
                             onChange={handleChange}
                         />
                     </div>
@@ -97,6 +104,7 @@ const Register = () => {
                             value={data.password2}
                             onChange={handleChange}
                         />
+                        <p>{errors?.password1}</p>
                     </div>
                 </div>
 
