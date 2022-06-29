@@ -40,14 +40,6 @@ const Register = () => {
                 if (error.response && error.response.status === 400) {
                     setErrors(error.response.data);
                     console.log(error.response.data);
-                    // {
-                    //     "username": [
-                    //       "A user with that username already exists."
-                    //     ],
-                    //     "email": [
-                    //       "A user is already registered with this e-mail address."
-                    //     ]
-                    //   }
                 }
             });
     };
@@ -69,7 +61,7 @@ const Register = () => {
                             value={data.username}
                             onChange={handleChange}
                         />
-                        <p>{errors?.username}</p>
+                        <p className="error">{errors?.username}</p>
                     </div>
                     <div className="form-group">
                         <label htmlFor="email">Email </label>
@@ -81,7 +73,7 @@ const Register = () => {
                             value={data.email}
                             onChange={handleChange}
                         />
-                        <p>{errors?.email}</p>
+                        <p className="error">{errors?.email}</p>
                     </div>
                     <div className="form-group">
                         <label htmlFor="password1">Password </label>
@@ -104,7 +96,7 @@ const Register = () => {
                             value={data.password2}
                             onChange={handleChange}
                         />
-                        <p>{errors?.password1}</p>
+                        <p className="error">{errors?.password1}</p>
                     </div>
                 </div>
 
@@ -112,9 +104,9 @@ const Register = () => {
                     <button type="submit" className="btn">
                         Register
                     </button>
-                </div>
-                <div>
-                    Old User? <Link to="../login">Login</Link>
+                    <div>
+                        Old User? <Link to="../login">Login</Link>
+                    </div>
                 </div>
             </form>
         </div>
