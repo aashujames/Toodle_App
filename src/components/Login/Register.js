@@ -33,7 +33,6 @@ const Register = () => {
         axios
             .post("http://127.0.0.1:8000/auth/registration/", userData)
             .then((response) => {
-                console.log(response.status);
                 console.log(response.data);
             })
             .catch((error) => {

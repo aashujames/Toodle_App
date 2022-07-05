@@ -39,6 +39,9 @@
     border: 2px solid #f7d343;
     height: 32px;
 }
+.error {
+    color: red;
+}
 
 .footer {
     display: flex;

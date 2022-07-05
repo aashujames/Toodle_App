@@ -2,12 +2,15 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../src/logo.png";
+import axios from "axios";
+import { setToken } from "../../axios/tokenHandler";
 
 const Login = () => {
     const [data, setData] = useState({
         username: "",
         password: ""
     });
+    const [errors, setErrors] = useState([]);
 
     const handleChange = (e) => {
         const id = e.target.id;
@@ -24,6 +27,21 @@ const Login = () => {
             username: data.username,
             password: data.password
         };
+        axios
+            .post("http://127.0.0.1:8000/auth/login/", userData)
+            .then((response) => {
+                console.log(response.data);
+                setToken(
+                    response.data.access_token,
+                    response.data.refresh_token
+                );
+            })
+            .catch((error) => {
+                if (error.response && error.response.status === 400) {
+                    setErrors(error.response.data);
+                    console.log(error.response.data);
+                }
+            });
     };
 
     return (
@@ -54,6 +72,7 @@ const Login = () => {
                             value={data.password}
                             onChange={handleChange}
                         />
+                        <p className="error">{errors?.non_field_errors}</p>
                     </div>
                 </div>
 
