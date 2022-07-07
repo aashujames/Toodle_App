@@ -6,7 +6,7 @@ import { clearAllTokens, getToken, setToken } from "./tokenHandler";
 const requestClient = axios.create({
     baseURL: "https://toodle-backend.herokuapp.com",
     headers: {
-        Authorization: `${localStorage.getItem("access")}`
+        Authorization: `Bearer ${localStorage.getItem("access")}`
     }
 });
 
@@ -14,7 +14,7 @@ requestClient.interceptors.request.use(
     async (config) => {
         const access = localStorage.getItem("access");
         config.headers = {
-            Authorization: access ? access : "",
+            Authorization: access ? "Bearer " + access : "",
             Accept: "application/json"
         };
         return config;
@@ -39,12 +39,9 @@ requestClient.interceptors.response.use(
                 return;
             }
             originalRequest._retry = true;
-            const response = await requestClient.post(
-                "/api/system-users/token/refresh/",
-                {
-                    refresh: getToken("refresh")
-                }
-            );
+            const response = await requestClient.post("/auth/token/refresh/", {
+                refresh: getToken("refresh")
+            });
             setToken(response.data.access);
             return requestClient(originalRequest);
         }

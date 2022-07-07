@@ -21,7 +21,7 @@ function App() {
                     }
                 />
                 <Route
-                    path="task"
+                    path="/task"
                     element={
                         <div className="main">
                             <Sidebar />
@@ -30,7 +30,7 @@ function App() {
                     }
                 />
                 <Route
-                    path="register"
+                    path="/register"
                     element={
                         <div className="login-container">
                             <Register />
@@ -38,7 +38,7 @@ function App() {
                     }
                 ></Route>
                 <Route
-                    path="login"
+                    path="/login"
                     element={
                         <div className="login-container">
                             <Login />

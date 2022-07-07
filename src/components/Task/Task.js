@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import ClearIcon from "@mui/icons-material/Clear";
 import "../../styles/Task.css";
 
-const Task = ({ task, setTaskList, taskList, setIsCompleted }) => {
-    const { id, name, isCompleted } = task;
-    const [input, setInput] = useState(name);
+const Task = ({ taskItem, setTaskList, taskList, setIsCompleted }) => {
+    const { id, task, isCompleted } = taskItem;
+    const [input, setInput] = useState(task);
 
     const updateTaskList = () => {
         const temp = [...taskList];
         const specificItem = temp.find((obj) => obj.id === id);
-        specificItem.name = input;
+        specificItem.task = input;
         setTaskList(temp);
     };
 

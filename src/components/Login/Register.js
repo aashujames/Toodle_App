@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import logo from "../../../src/logo.png";
 import "../../styles/Register.css";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import requestClient from "../../axios/Client";
 
 const Register = () => {
@@ -105,7 +104,7 @@ const Register = () => {
                         Register
                     </button>
                     <div>
-                        Old User? <Link to="../login">Login</Link>
+                        Old User? <Link to="/login">Login</Link>
                     </div>
                 </div>
             </form>

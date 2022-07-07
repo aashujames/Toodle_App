@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../src/logo.png";
-import axios from "axios";
 import { setToken } from "../../axios/tokenHandler";
 import requestClient from "../../axios/Client";
 
@@ -37,7 +36,7 @@ const Login = () => {
                     response.data.access_token,
                     response.data.refresh_token
                 );
-                navigate("task", { replace: true });
+                navigate("/task", { replace: true });
             })
             .catch((error) => {
                 if (error.response && error.response.status === 400) {
@@ -84,7 +83,7 @@ const Login = () => {
                         Login
                     </button>
                     <div>
-                        New User? <Link to="../register">Register</Link>
+                        New User? <Link to="/register">Register</Link>
                     </div>
                 </div>
             </form>

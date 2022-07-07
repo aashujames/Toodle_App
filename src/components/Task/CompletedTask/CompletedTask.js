@@ -13,7 +13,7 @@ const CompletedTask = ({ taskList }) => {
                         <div key={item.id} className="Comptask-container">
                             <p className="para">
                                 <CheckCircleIcon className="icon" />
-                                {item.name}
+                                {item.task}
                             </p>
                         </div>
                     )

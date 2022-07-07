@@ -4,6 +4,8 @@ import AddIcon from "@mui/icons-material/Add";
 import { v4 as uuid } from "uuid";
 import Task from "../Task";
 import CompletedTask from "../CompletedTask/CompletedTask";
+import { useEffect } from "react";
+import requestClient from "../../../axios/Client";
 
 const TodayTask = () => {
     const [taskList, setTaskList] = useState([]);
@@ -24,6 +26,18 @@ const TodayTask = () => {
         setShowInput(true);
     };
 
+    const fetchData = async () => {
+        const response = await requestClient.get(
+            "https://toodle-backend.herokuapp.com/todos/"
+        );
+
+        setTaskList(response.data);
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     var myCurrentDate = new Date();
     var date = myCurrentDate.getDate();
 
@@ -42,7 +56,7 @@ const TodayTask = () => {
             {taskList.map((item) => (
                 <div key={item.id}>
                     <Task
-                        task={item}
+                        taskItem={item}
                         taskList={taskList}
                         setTaskList={setTaskList}
                         setIsCompleted={setIsCompleted}
