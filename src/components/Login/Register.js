@@ -3,6 +3,7 @@ import logo from "../../../src/logo.png";
 import "../../styles/Register.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import requestClient from "../../axios/Client";
 
 const Register = () => {
     const [data, setData] = useState({
@@ -30,8 +31,8 @@ const Register = () => {
             password1: data.password1,
             password2: data.password2
         };
-        axios
-            .post("http://127.0.0.1:8000/auth/registration/", userData)
+        requestClient
+            .post("/auth/registration/", userData)
             .then((response) => {
                 console.log(response.data);
             })

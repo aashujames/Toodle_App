@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../src/logo.png";
 import axios from "axios";
 import { setToken } from "../../axios/tokenHandler";
+import requestClient from "../../axios/Client";
 
 const Login = () => {
     const [data, setData] = useState({
@@ -11,6 +12,7 @@ const Login = () => {
         password: ""
     });
     const [errors, setErrors] = useState([]);
+    let navigate = useNavigate();
 
     const handleChange = (e) => {
         const id = e.target.id;
@@ -27,14 +29,15 @@ const Login = () => {
             username: data.username,
             password: data.password
         };
-        axios
-            .post("http://127.0.0.1:8000/auth/login/", userData)
+        requestClient
+            .post("/auth/login/", userData)
             .then((response) => {
                 console.log(response.data);
                 setToken(
                     response.data.access_token,
                     response.data.refresh_token
                 );
+                navigate("task", { replace: true });
             })
             .catch((error) => {
                 if (error.response && error.response.status === 400) {

@@ -7,13 +7,12 @@ export function getToken(def = "refresh") {
 }
 
 export function setToken(param1 = "access", param2) {
-    console.log(param1, param2);
     if (param1) {
-        localStorage.setItem("access", JSON.stringify("access"));
+        localStorage.setItem("access", JSON.stringify(param1));
     }
     if (param1 && param2) {
-        localStorage.setItem("access", JSON.stringify("access"));
-        localStorage.setItem("refresh", JSON.stringify("refresh"));
+        localStorage.setItem("access", JSON.stringify(param1));
+        localStorage.setItem("refresh", JSON.stringify(param2));
     }
 }
 
