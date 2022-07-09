@@ -15,9 +15,11 @@ const TodayTask = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const singleTask = { id: 0, task, isCompleted };
-        setTaskList([...taskList, singleTask]);
+        const singleTask = { id: null, task, isCompleted, priority: 0 };
 
+        requestClient.post("/todos/", singleTask).then(() => {
+            setTaskList([...taskList, singleTask]);
+        });
         setShowInput(true);
         setTask("");
     };
@@ -29,7 +31,6 @@ const TodayTask = () => {
 
     const fetchData = async () => {
         const response = await requestClient.get("/todos/");
-
         setTaskList(response.data);
     };
 

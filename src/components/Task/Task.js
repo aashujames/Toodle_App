@@ -11,7 +11,9 @@ const Task = ({ taskItem, setTaskList, taskList, setIsCompleted }) => {
         const temp = [...taskList];
         const specificItem = temp.find((obj) => obj.id === id);
         specificItem.task = input;
-        setTaskList(temp);
+        requestClient.put(`/todos/${id}/`, taskItem).then(() => {
+            setTaskList(temp);
+        });
     };
 
     const removeTask = () => {
@@ -25,7 +27,10 @@ const Task = ({ taskItem, setTaskList, taskList, setIsCompleted }) => {
         const temp = [...taskList];
         const specificItem = temp.find((obj) => obj.id === id);
         specificItem.isCompleted = !isCompleted;
-        setTaskList(temp);
+        // setTaskList(temp);
+        requestClient.put(`/todos/${id}/`, taskItem).then(() => {
+            setTaskList(temp);
+        });
     };
 
     return (
