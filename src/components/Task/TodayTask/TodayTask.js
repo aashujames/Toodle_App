@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../../styles/TodayTask.css";
 import AddIcon from "@mui/icons-material/Add";
-import { v4 as uuid } from "uuid";
+// import { v4 as uuid } from "uuid";
 import Task from "../Task";
 import CompletedTask from "../CompletedTask/CompletedTask";
 import { useEffect } from "react";
@@ -9,27 +9,26 @@ import requestClient from "../../../axios/Client";
 
 const TodayTask = () => {
     const [taskList, setTaskList] = useState([]);
-    const [name, setName] = useState("");
+    const [task, setTask] = useState("");
     const [showInput, setShowInput] = useState(true);
     const [isCompleted, setIsCompleted] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const singleTask = { id: uuid(), name, isCompleted };
+        const singleTask = { id: 0, task, isCompleted };
         setTaskList([...taskList, singleTask]);
+
         setShowInput(true);
-        setName("");
+        setTask("");
     };
 
     const handleCancel = () => {
-        setName("");
+        setTask("");
         setShowInput(true);
     };
 
     const fetchData = async () => {
-        const response = await requestClient.get(
-            "https://toodle-backend.herokuapp.com/todos/"
-        );
+        const response = await requestClient.get("/todos/");
 
         setTaskList(response.data);
     };
@@ -78,8 +77,8 @@ const TodayTask = () => {
                             <input
                                 className="today-input"
                                 type="text"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
+                                value={task}
+                                onChange={(e) => setTask(e.target.value)}
                             />
                             <button
                                 type="reset"

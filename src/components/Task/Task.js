@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ClearIcon from "@mui/icons-material/Clear";
 import "../../styles/Task.css";
+import requestClient from "../../axios/Client";
 
 const Task = ({ taskItem, setTaskList, taskList, setIsCompleted }) => {
     const { id, task, isCompleted } = taskItem;
@@ -14,8 +15,10 @@ const Task = ({ taskItem, setTaskList, taskList, setIsCompleted }) => {
     };
 
     const removeTask = () => {
-        const filtered = taskList.filter((item) => item.id !== id);
-        setTaskList(filtered);
+        requestClient.delete(`/todos/${id}/`).then(() => {
+            const filtered = taskList.filter((item) => item.id !== id);
+            setTaskList(filtered);
+        });
     };
 
     const handleCompleted = () => {
@@ -40,9 +43,6 @@ const Task = ({ taskItem, setTaskList, taskList, setIsCompleted }) => {
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
                         onBlur={updateTaskList}
-                        // onKeyDown={(e) => {
-                        //     if (e.key === "Enter") updateTaskList();
-                        // }}
                     />
                     <button onClick={removeTask} className="remove">
                         <ClearIcon />{" "}
