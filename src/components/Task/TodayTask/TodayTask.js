@@ -15,7 +15,7 @@ const TodayTask = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const singleTask = { id: null, task, isCompleted, priority: 0 };
+        const singleTask = { task, isCompleted, priority: 0 };
 
         requestClient.post("/todos/", singleTask).then(() => {
             setTaskList([...taskList, singleTask]);

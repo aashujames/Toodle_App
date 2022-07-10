@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/Home.css";
 import logo from "../../../src/logo.png";
+import requestClient from "../../axios/Client";
 
 const Home = () => {
+    requestClient.post("/auth/token/verify/").then((res) => {
+        console.log(res);
+    });
+
     return (
         <>
             <nav className="navbar">
