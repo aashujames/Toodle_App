@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "../../../src/logo.png";
 import "../../styles/Register.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import requestClient from "../../axios/Client";
 
 const Register = () => {
@@ -12,6 +12,7 @@ const Register = () => {
         password2: ""
     });
     const [errors, setErrors] = useState({});
+    let navigate = useNavigate();
 
     const handleChange = (e) => {
         const id = e.target.id;
@@ -34,6 +35,7 @@ const Register = () => {
             .post("/auth/registration/", userData)
             .then((response) => {
                 console.log(response.data);
+                navigate("/login", { replace: true });
             })
             .catch((error) => {
                 if (error.response && error.response.status === 400) {
