@@ -1,26 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/Home.css";
 import logo from "../../../src/logo.png";
 import requestClient from "../../axios/Client";
+import { getToken } from "../../axios/tokenHandler";
 
 const Home = () => {
-    requestClient.post("/auth/token/verify/").then((res) => {
-        console.log(res);
-    });
+    const [isAuth, setAuth] = useState(false);
 
+    useEffect(() => {
+        try {
+            requestClient
+                .post("/auth/token/verify/", { token: getToken("access") })
+                .then((res) => {
+                    if (res.status === 200) {
+                        setAuth(true);
+                    }
+                });
+        } catch (error) {
+            console.log(error);
+        }
+    }, []);
     return (
         <>
             <nav className="navbar">
                 <img src={logo} alt="logo" className="image" />
-                <div className="nav-container">
-                    <Link to="register" className="link">
-                        Register
-                    </Link>
-                    <Link to="login" className="link">
-                        Login
-                    </Link>
-                </div>
+                {isAuth ? (
+                    <div className="nav-container">
+                        <Link to="task" className="link">
+                            Task Page
+                        </Link>
+                    </div>
+                ) : (
+                    <div className="nav-container">
+                        <Link to="register" className="link">
+                            Register
+                        </Link>
+                        <Link to="login" className="link">
+                            Login
+                        </Link>
+                    </div>
+                )}
             </nav>
             <div className="top">
                 <h1>Welcome to the Toodle App!</h1>

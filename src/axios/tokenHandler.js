@@ -1,8 +1,8 @@
 export function getToken(def = "refresh") {
     if (def) {
-        return localStorage.getItem("refresh");
+        return localStorage.getItem("refresh") || "";
     } else {
-        return localStorage.getItem("access");
+        return localStorage.getItem("access") || "";
     }
 }
 

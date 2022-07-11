@@ -15,8 +15,7 @@ function App() {
                     path="/"
                     element={
                         <div className="home-container">
-                            {" "}
-                            <Home />{" "}
+                            <Home />
                         </div>
                     }
                 />
