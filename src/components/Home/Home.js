@@ -24,9 +24,12 @@ const Home = () => {
             </nav>
             <div className="top">
                 <h1>Welcome to the Toodle App!</h1>
-                <div>For proper workflow Toodle is what you need.</div>
-                <div>Make your everyday an awesome day with Toodle.</div>
-                <h3>New User register to get access.</h3>
+                <br />
+                <p>
+                    For proper workflow Toodle is what you need.
+                    <br /> Make your everyday an awesome day with Toodle.
+                    <br /> New User register to get access.
+                </p>
             </div>
         </>
     );
