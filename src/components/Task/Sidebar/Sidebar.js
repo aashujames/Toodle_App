@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import requestClient from "../../../axios/Client";
 import { clearAllTokens } from "../../../axios/tokenHandler";
 import "../../../styles/Sidebar.css";
 
