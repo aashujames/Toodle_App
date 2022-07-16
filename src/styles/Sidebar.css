@@ -11,3 +11,7 @@
     color: cornsilk;
     cursor: pointer;
 }
+
+.sidebar-container button {
+    border: none;
+}

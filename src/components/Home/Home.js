@@ -21,6 +21,7 @@ const Home = () => {
             console.log(error);
         }
     }, []);
+
     return (
         <>
             <nav className="navbar">

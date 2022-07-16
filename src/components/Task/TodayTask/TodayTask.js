@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../../../styles/TodayTask.css";
 import AddIcon from "@mui/icons-material/Add";
-// import { v4 as uuid } from "uuid";
 import Task from "../Task";
 import CompletedTask from "../CompletedTask/CompletedTask";
 import { useEffect } from "react";
