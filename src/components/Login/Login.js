@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../src/logo.png";
 import { setToken } from "../../axios/tokenHandler";
 import requestClient from "../../axios/Client";
+import axios from "axios";
 
 const Login = () => {
     const [data, setData] = useState({
@@ -28,8 +29,8 @@ const Login = () => {
             username: data.username,
             password: data.password
         };
-        requestClient
-            .post("/auth/login/", userData)
+        axios
+            .post("https://toodle-backend.herokuapp.com/auth/login/", userData)
             .then((response) => {
                 console.log(response.data);
                 setToken(
