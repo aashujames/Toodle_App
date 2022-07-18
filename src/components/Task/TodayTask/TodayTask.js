@@ -12,6 +12,7 @@ const TodayTask = () => {
     const [showInput, setShowInput] = useState(true);
     const [isCompleted, setIsCompleted] = useState(false);
 
+    //Submitting the form to add a task
     const handleSubmit = (e) => {
         e.preventDefault();
         const singleTask = { task, isCompleted, priority: 0 };
@@ -28,6 +29,7 @@ const TodayTask = () => {
         setShowInput(true);
     };
 
+    //getting data from server
     const fetchData = async () => {
         const response = await requestClient.get("/todos/");
         setTaskList(response.data);

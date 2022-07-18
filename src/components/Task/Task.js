@@ -7,6 +7,7 @@ const Task = ({ taskItem, setTaskList, taskList, setIsCompleted }) => {
     const { id, task, isCompleted } = taskItem;
     const [input, setInput] = useState(task);
 
+    //modifying any task
     const updateTaskList = () => {
         const temp = [...taskList];
         const specificItem = temp.find((obj) => obj.id === id);
@@ -23,11 +24,11 @@ const Task = ({ taskItem, setTaskList, taskList, setIsCompleted }) => {
         });
     };
 
+    //check the task which gets completed
     const handleCompleted = () => {
         const temp = [...taskList];
         const specificItem = temp.find((obj) => obj.id === id);
         specificItem.isCompleted = !isCompleted;
-        // setTaskList(temp);
         requestClient.put(`/todos/${id}/`, taskItem).then(() => {
             setTaskList(temp);
         });

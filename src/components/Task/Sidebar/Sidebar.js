@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { clearAllTokens } from "../../../axios/tokenHandler";
 import "../../../styles/Sidebar.css";
-import Upcoming from "./Upcoming";
+import Upcoming from "../UpcomingTask/Upcoming";
 
 const Sidebar = () => {
     let navigate = useNavigate();

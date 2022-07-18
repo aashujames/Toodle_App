@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../src/logo.png";
 import { setToken } from "../../axios/tokenHandler";
-import requestClient from "../../axios/Client";
 import axios from "axios";
 
 const Login = () => {

@@ -8,6 +8,7 @@ import { getToken } from "../../axios/tokenHandler";
 const Home = () => {
     const [isAuth, setAuth] = useState(false);
 
+    //Verifying if the user is already logged in or not. If logged in send it directly to task page without authentication
     useEffect(() => {
         try {
             requestClient
