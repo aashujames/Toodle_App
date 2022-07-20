@@ -14,13 +14,6 @@
     width: 100vw;
     display: flex;
     justify-content: center;
-    align-items: center;
-    background: rgb(115, 123, 220);
-    background: linear-gradient(
-        90deg,
-        rgba(115, 123, 220, 1) 51%,
-        rgba(206, 79, 216, 1) 96%
-    );
 }
 
 .home-container {

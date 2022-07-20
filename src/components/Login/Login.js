@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../../src/logo.png";
 import { setToken } from "../../axios/tokenHandler";
 import axios from "axios";
+import loginImage from "../../login-cover.svg";
 
 const Login = () => {
     const [data, setData] = useState({
@@ -47,47 +47,50 @@ const Login = () => {
     };
 
     return (
-        <div className="base-container">
-            <div className="header">Login</div>
-            <Link to="/">
-                <img src={logo} alt="logo" className="image" />
-            </Link>
-            <form onSubmit={handleSubmit}>
-                <div className="form">
-                    <div className="form-group">
-                        <label htmlFor="username">Username </label> <br />
-                        <input
-                            className="text-field"
-                            type="text"
-                            id="username"
-                            value={data.username}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password </label>
-                        <br />
-                        <input
-                            className="text-field"
-                            type="password"
-                            id="password"
-                            value={data.password}
-                            onChange={handleChange}
-                        />
-                        <p className="error">{errors?.non_field_errors}</p>
-                    </div>
+        <>
+            <img src={loginImage} alt="loginImage" className="side-image" />
+            <div className="base-container">
+                <div className="top-right">
+                    New User?{" "}
+                    <Link to="/register" style={{ textDecoration: "none" }}>
+                        Register
+                    </Link>
                 </div>
+                <div className="header">Login</div>
+                <form onSubmit={handleSubmit}>
+                    <div className="form">
+                        <div className="form-group">
+                            <label htmlFor="username">Username </label> <br />
+                            <input
+                                className="text-field"
+                                type="text"
+                                id="username"
+                                value={data.username}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="password">Password </label>
+                            <br />
+                            <input
+                                className="text-field"
+                                type="password"
+                                id="password"
+                                value={data.password}
+                                onChange={handleChange}
+                            />
+                            <p className="error">{errors?.non_field_errors}</p>
+                        </div>
+                    </div>
 
-                <div className="footer">
-                    <button type="submit" className="btn">
-                        Login
-                    </button>
-                    <div>
-                        New User? <Link to="/register">Register</Link>
+                    <div className="footer">
+                        <button type="submit" className="btn">
+                            Login
+                        </button>
                     </div>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+        </>
     );
 };
 
