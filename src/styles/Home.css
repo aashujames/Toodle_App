@@ -1,3 +1,8 @@
+.image {
+    height: 80px;
+    width: 80px;
+}
+
 .navbar {
     display: flex;
     justify-content: space-around;
@@ -20,10 +25,9 @@
 }
 
 .top {
-    margin-top: 40px;
     text-align: center;
     height: 100%;
-    background: url("../home\ image.jpeg") no-repeat center center fixed;
+    background: url("../home-image.jpeg") no-repeat center center fixed;
     background-size: cover;
     color: rgb(15, 39, 148);
 }

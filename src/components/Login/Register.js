@@ -3,6 +3,7 @@ import "../../styles/Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import requestClient from "../../axios/Client";
 import registerImage from "../../register-cover.svg";
+import logo from "../../../src/logo.png";
 
 const Register = () => {
     const [data, setData] = useState({
@@ -52,7 +53,11 @@ const Register = () => {
                 alt="registerImage"
                 className="side-image"
             />
-
+            <div className="logo">
+                <Link to="/">
+                    <img src={logo} alt="logo" className="image" />
+                </Link>
+            </div>
             <div className="top-right">
                 Old User?{" "}
                 <Link to="/login" style={{ textDecoration: "none" }}>

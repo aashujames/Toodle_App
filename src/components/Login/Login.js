@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { setToken } from "../../axios/tokenHandler";
 import axios from "axios";
 import loginImage from "../../login-cover.svg";
+import logo from "../../../src/logo.png";
 
 const Login = () => {
     const [data, setData] = useState({
@@ -49,13 +50,18 @@ const Login = () => {
     return (
         <>
             <img src={loginImage} alt="loginImage" className="side-image" />
+            <div className="logo">
+                <Link to="/">
+                    <img src={logo} alt="logo" className="image" />
+                </Link>
+            </div>
+            <div className="top-right">
+                New User?{" "}
+                <Link to="/register" style={{ textDecoration: "none" }}>
+                    Register
+                </Link>
+            </div>
             <div className="base-container">
-                <div className="top-right">
-                    New User?{" "}
-                    <Link to="/register" style={{ textDecoration: "none" }}>
-                        Register
-                    </Link>
-                </div>
                 <div className="header">Login</div>
                 <form onSubmit={handleSubmit}>
                     <div className="form">

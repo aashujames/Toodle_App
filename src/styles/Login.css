@@ -3,6 +3,12 @@
     width: 50%;
 }
 
+.logo {
+    position: absolute;
+    height: 80px;
+    width: 80px;
+}
+
 .top-right {
     position: absolute;
     top: 3%;
