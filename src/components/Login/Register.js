@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import requestClient from "../../axios/Client";
 import registerImage from "../../register-cover.svg";
 import logo from "../../../src/logo.png";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 const Register = () => {
     const [data, setData] = useState({
@@ -13,6 +15,7 @@ const Register = () => {
         password2: ""
     });
     const [errors, setErrors] = useState({});
+    const [showPassword, setShowPassword] = useState(false);
     let navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -44,6 +47,10 @@ const Register = () => {
                     console.log(error.response.data);
                 }
             });
+    };
+
+    const handleClickShowPassword = () => {
+        setShowPassword(!showPassword);
     };
 
     return (
@@ -95,13 +102,27 @@ const Register = () => {
                             <div className="form-group">
                                 <label htmlFor="password1">Password </label>
                                 <br />
-                                <input
-                                    className="text-field"
-                                    type="password"
-                                    id="password1"
-                                    value={data.password1}
-                                    onChange={handleChange}
-                                />
+                                <div className="relative">
+                                    <input
+                                        className="text-field"
+                                        type={
+                                            showPassword ? "text" : "password"
+                                        }
+                                        id="password1"
+                                        value={data.password1}
+                                        onChange={handleChange}
+                                    />
+                                    <button
+                                        onClick={handleClickShowPassword}
+                                        className="pass-visible"
+                                    >
+                                        {showPassword ? (
+                                            <VisibilityOffIcon />
+                                        ) : (
+                                            <VisibilityIcon />
+                                        )}
+                                    </button>
+                                </div>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="password2">
@@ -115,11 +136,9 @@ const Register = () => {
                                     value={data.password2}
                                     onChange={handleChange}
                                 />
-                                <p className="error-pass">
-                                    {errors?.password1}
-                                </p>
                             </div>
                         </div>
+                        <p className="error-pass">{errors?.password1}</p>
                     </div>
 
                     <div className="footer">
