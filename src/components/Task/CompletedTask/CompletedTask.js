@@ -26,7 +26,7 @@ const CompletedTask = ({ taskList, setTaskList }) => {
                             </p>
                             <button
                                 onClick={() => removeCompTask(item.id)}
-                                className="remove"
+                                className="remove-comp"
                             >
                                 <ClearIcon />{" "}
                             </button>
