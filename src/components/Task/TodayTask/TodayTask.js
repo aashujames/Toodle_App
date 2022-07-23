@@ -93,7 +93,7 @@ const TodayTask = () => {
                     )}
                 </div>
             </form>
-            <CompletedTask taskList={taskList} />
+            <CompletedTask taskList={taskList} setTaskList={setTaskList} />
         </section>
     );
 };

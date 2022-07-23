@@ -1,8 +1,17 @@
 import React from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import "../../../styles/CompletedTask.css";
+import ClearIcon from "@mui/icons-material/Clear";
+import requestClient from "../../../axios/Client";
 
-const CompletedTask = ({ taskList }) => {
+const CompletedTask = ({ taskList, setTaskList }) => {
+    const removeCompTask = (id) => {
+        requestClient.delete(`/todos/${id}/`).then(() => {
+            const filtered = taskList.filter((item) => item.id !== id);
+            setTaskList(filtered);
+        });
+    };
+
     return (
         <>
             <h2>Completed Task: </h2>
@@ -15,6 +24,12 @@ const CompletedTask = ({ taskList }) => {
                                 <CheckCircleIcon className="icon" />
                                 {item.task}
                             </p>
+                            <button
+                                onClick={() => removeCompTask(item.id)}
+                                className="remove"
+                            >
+                                <ClearIcon />{" "}
+                            </button>
                         </div>
                     )
             )}
