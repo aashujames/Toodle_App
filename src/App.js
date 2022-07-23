@@ -6,6 +6,7 @@ import Register from "./components/Login/Register";
 import Sidebar from "./components/Task/Sidebar/Sidebar";
 import TodayTask from "./components/Task/TodayTask";
 import Home from "./components/Home/Home";
+import Upcoming from "./components/Task/UpcomingTask/Upcoming";
 
 function App() {
     return (
@@ -25,6 +26,15 @@ function App() {
                         <div className="main">
                             <Sidebar />
                             <TodayTask />
+                        </div>
+                    }
+                />
+                <Route
+                    path="/task/upcoming"
+                    element={
+                        <div className="main">
+                            <Sidebar />
+                            <Upcoming />
                         </div>
                     }
                 />
