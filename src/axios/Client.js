@@ -4,7 +4,7 @@ import { clearAllTokens, getToken, setToken } from "./tokenHandler";
 //getting access token or refresh token
 
 const requestClient = axios.create({
-    baseURL: "https://toodle-backend.herokuapp.com",
+    baseURL: "https://web-production-a2da.up.railway.app",
     headers: {
         Authorization: `Bearer ${localStorage.getItem("access")}`
     }
