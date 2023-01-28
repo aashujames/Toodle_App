@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { setToken } from "../../axios/tokenHandler";
-import axios from "axios";
 import loginImage from "../../login-cover.svg";
 import logo from "../../../src/logo.png";
 import requestClient from "../../axios/Client";
@@ -13,6 +12,7 @@ const Login = () => {
         password: ""
     });
     const [errors, setErrors] = useState([]);
+    const [btnDisable, setBtnDisable] = useState(false);
     let navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -30,6 +30,7 @@ const Login = () => {
             username: data.username,
             password: data.password
         };
+        setBtnDisable(true);
         requestClient
             .post("/auth/login/", userData)
             .then((response) => {
@@ -45,7 +46,8 @@ const Login = () => {
                     setErrors(error.response.data);
                     console.log(error.response.data);
                 }
-            });
+            })
+            .finally(() => setBtnDisable(false));
     };
 
     return (
@@ -91,7 +93,11 @@ const Login = () => {
                     </div>
 
                     <div className="footer">
-                        <button type="submit" className="btn">
+                        <button
+                            type="submit"
+                            className="btn"
+                            disabled={btnDisable}
+                        >
                             Login
                         </button>
                     </div>
