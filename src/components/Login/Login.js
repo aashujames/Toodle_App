@@ -5,6 +5,7 @@ import { setToken } from "../../axios/tokenHandler";
 import axios from "axios";
 import loginImage from "../../login-cover.svg";
 import logo from "../../../src/logo.png";
+import requestClient from "../../axios/Client";
 
 const Login = () => {
     const [data, setData] = useState({
@@ -29,8 +30,8 @@ const Login = () => {
             username: data.username,
             password: data.password
         };
-        axios
-            .post("https://toodle-backend.herokuapp.com/auth/login/", userData)
+        requestClient
+            .post("/auth/login/", userData)
             .then((response) => {
                 console.log(response.data);
                 setToken(
